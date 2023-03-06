@@ -1,0 +1,19 @@
+version: "3.7"
+networks:
+  hospital:
+    name: hospital
+services:
+  db:
+    image: mariadb:10.3.16
+    ports:
+      - "43306:3306"
+    container_name: hospital-mariadb
+    networks:
+      - hospital
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  esdata1:
+    driver: local
